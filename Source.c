@@ -110,7 +110,7 @@ Are you from the future? Anyway, hit me with it: ");
         validation = scanf_s("%d", &year);
         if (validation != 1 || year < 1900 || year > 3000) {
             while ((c = getchar()) != '\n' && c != EOF);
-            printf("\nSorry, this was the wrong input. You need to give an\
+            printf("\nSorry, this was the wrong input. You need to give an \
 integer between 1900 and 3000. Try again: ");
             validation = 0;
         }
