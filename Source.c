@@ -125,6 +125,13 @@ keystrokes. This message will vanish once you do the first moving part.\n\n");
     while ((c = getchar()) != '\n' && c != EOF);
     leap_year_change(year);
 
+    // here we check if the user gave a date which is more then the month has.
+    // If they did, we set it to the last date of the month.
+
+    // This functionality was added after I submitted the code.
+    if (day > DAY_MONTHS[month - 1])
+        day = DAY_MONTHS[month_for_array];
+
     // this is an infinite loop. I think calling a while loop with 1 is 
     // regarded bad practice, but every other way of achieving a "while loop
     // until specific keystroke" relied on more libraries and I need to get
@@ -388,7 +395,8 @@ void print_date(int day, int day_counter, int day_with_date,
 // this allows to add an appointement to the storage
 void add_date(int day, int month, int year, int date_storage[AMOUNT_DATES][3],
     char date_names[AMOUNT_DATES][50]) {
-    char c; // used as (temporary) input storage
+    //after submitting changed,  initialized because the compiler complains
+    char c = 'n'; // used as (temporary) input storage
     char title[50]; // used as (temporary) longer input storage
     int validation = 0; // result of scanf_s or wrong user input
     int title_length = 0; // later lnegth of the entered title
